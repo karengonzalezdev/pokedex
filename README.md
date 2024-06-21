@@ -1,5 +1,7 @@
 # pokedex
 
+(Is not optimized for small screens yet)
+
 https://pokedex-lovat-three.vercel.app/
 
 </br>
