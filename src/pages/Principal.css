@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+  }
+  
+  .column-1 {
+    width: 45%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    flex: 1;
+    border-radius: 5px;
+    background-color: orangered;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pokeLogo {
+    height: 25%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pokeLogo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .pokemon {
+    height: 65%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .column-2 {
+    width: 55%;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    align-items: center;
+  }
+  
+  .buttonNext {
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px #ff7230;
+  }
+
+  .buttonPrevList {
+    background-color: greenyellow;
+    width: 30px;
+    height: 30px;
+  }
