@@ -28,6 +28,10 @@ export function Principal() {
     async function filteredList() {
       setLoading(true);
       let pokemons = await getPokemonKantoData();
+      pokemons = pokemons.map(pokemon => ({
+        ...pokemon,
+        name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+      }));
       setPokeList(pokemons.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage));
       setLoading(false);
     }
