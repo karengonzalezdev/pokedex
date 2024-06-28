@@ -75,7 +75,7 @@ function PokemonInformation({ pokemon }) {
     <div className="pokemon-info">
       <h1>{capitalizeFirstLetter(pokemon.name)}</h1>
       <div>
-      <h2>Type</h2>
+        <h2>Type</h2>
         <ul>
           {pokemon.types.length > 0 &&
             pokemon.types.map((t, idx) => (

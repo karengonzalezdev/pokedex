@@ -1,8 +1,7 @@
-import axios from "axios"; // this library is to fetch data from REST APIs
+import axios from "axios";
 import { handleError, handleResponse } from "./ApiUtils";
 
 const httpRequest = (method, url, request, headers) => {
-  // return a promise
   return axios({
     method,
     url,
@@ -25,7 +24,6 @@ const get = (url, request, headers) => {
     let len = Object.keys(request).length,
       cnt = 0;
 
-    // transform the request object in a query string
     for (let key in request) {
       cnt++;
       queryString += `${key}=${request[key].toString()}`;

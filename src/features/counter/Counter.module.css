@@ -4,10 +4,11 @@
   justify-content: center;
 }
 
-.row > button {
+.row>button {
   margin-left: 4px;
   margin-right: 8px;
 }
+
 .row:not(:last-child) {
   margin-bottom: 16px;
 }

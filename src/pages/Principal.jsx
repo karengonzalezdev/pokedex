@@ -68,7 +68,7 @@ export function Principal() {
 
   const closeInformation = () => {
     setPokeInformation(null);
-    setPokemonSelected(null); // Asegurarse de que la imagen vuelva a la pokebola cuando se cierra la información
+    setPokemonSelected(null);
   };
 
   return (
@@ -90,14 +90,14 @@ export function Principal() {
       <div className="column-2">
         {loading ? (
           <div class="loading">
-          <span>L</span>
-          <span>O</span>
-          <span>A</span>
-          <span>D</span>
-          <span>I</span>
-          <span>N</span>
-          <span>G</span>
-        </div>
+            <span>L</span>
+            <span>O</span>
+            <span>A</span>
+            <span>D</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
+          </div>
         ) : (
           <>
             {pokeInformation ? (
