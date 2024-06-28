@@ -9,7 +9,7 @@ function List({ pokemons, handleSingleClick, handleDoubleClick, lastClickedId })
       handleDoubleClick(pokemonId);
     } else {
       handleSingleClick(pokemonId);
-      setSelectedPokemonId(pokemonId); // Establecer el Pokémon seleccionado
+      setSelectedPokemonId(pokemonId);
     }
   };
 
@@ -18,9 +18,8 @@ function List({ pokemons, handleSingleClick, handleDoubleClick, lastClickedId })
       <li
         key={id}
         onClick={() => handleClick(p.id)}
-        className={selectedPokemonId === p.id ? "selected" : ""}
       >
-        <p className="pokeName">{p.name}</p>
+        <p className={`pokeName ${selectedPokemonId === p.id ? "selected" : ""}`}>{p.name}</p>
       </li>
     ));
   };

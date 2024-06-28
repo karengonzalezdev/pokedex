@@ -1,6 +1,12 @@
 .image {
-  width: 70vh;
-  height: auto;
+  height: 24rem;
+  width: auto;
   display: block;
   margin: auto;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .image{
+    height: 15rem;
+  }
 }

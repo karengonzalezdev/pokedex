@@ -1,10 +1,9 @@
 import React from "react";
-import './PokemonInformation.css'; // Asegúrate de importar el archivo CSS
+import './PokemonInformation.css';
 
 function PokemonInformation({ pokemon }) {
-  // Verificar si pokemon está definido antes de acceder a sus propiedades
   if (!pokemon) {
-    return null; // Retorna null si pokemon no está definido
+    return null;
   }
 
   const capitalizeFirstLetter = (string) => {
@@ -89,7 +88,7 @@ function PokemonInformation({ pokemon }) {
           <h2>Abilities</h2>
           <ul>
             {pokemon.abilities.map((ability, idx) => (
-              <li className="abilities" key={idx}>{ability.ability.name}</li>
+              <li className="abilities" key={idx}>{capitalizeFirstLetter(ability.ability.name)}</li>
             ))}
           </ul>
         </div>
@@ -97,7 +96,7 @@ function PokemonInformation({ pokemon }) {
           <h2>Stats</h2>
           {pokemon.stats.map((stat, idx) => (
             <div key={idx} className="stat">
-              <div className="stat-name">{stat.stat.name}:</div>
+              <div className="stat-name">{capitalizeFirstLetter(stat.stat.name)}:</div>
               <div className="stat-bar-container">
                 <div className="stat-bar" style={{ width: `${stat.base_stat}%` }}></div>
               </div>

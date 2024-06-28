@@ -22,13 +22,10 @@ export const getKantoPokemon = async () => {
 
         export const getPokemonKantoData = async () => {
             try {
-            //get pokemon list
             let pokemons = await getKantoPokemon();
             
-            //get promises to obtain data for all pokemon in the list
             let pokemonPromises = pokemons.map((p) => getPokemonData(p.url));
             
-            //return all the pokemon data
             return await Promise.all(pokemonPromises);
             } catch (err) {
             throw err;

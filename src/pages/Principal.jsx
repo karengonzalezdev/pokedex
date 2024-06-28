@@ -22,7 +22,7 @@ export function Principal() {
 
   useEffect(() => {
     dispatch(setPokemon({ name: 'Pikachu', type: 'Electric' }));
-  }, [dispatch]);
+  }, [dispatch]); console.log(pokemon);
 
   useEffect(() => {
     async function filteredList() {
@@ -34,6 +34,7 @@ export function Principal() {
       }));
       setPokeList(pokemons.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage));
       setLoading(false);
+      setPokemonSelected(null);
     }
     filteredList();
   }, [currentPage]);
@@ -67,6 +68,7 @@ export function Principal() {
 
   const closeInformation = () => {
     setPokeInformation(null);
+    setPokemonSelected(null); // Asegurarse de que la imagen vuelva a la pokebola cuando se cierra la información
   };
 
   return (
@@ -77,15 +79,25 @@ export function Principal() {
             <img src={require('../assets/pokemonLogo.png')} alt="Pokémon Logo" />
           </div>
           <div className="pokemon">
-            {pokemonSelected && (
+            {pokemonSelected ? (
               <PokemonImage pokemon={pokemonSelected} />
+            ) : (
+              <img className="pokeball-image" src={require('../assets/pokeball.jpg')} alt="Pokeball" />
             )}
           </div>
         </div>
       </div>
       <div className="column-2">
         {loading ? (
-          <p>Loading...</p>
+          <div class="loading">
+          <span>L</span>
+          <span>O</span>
+          <span>A</span>
+          <span>D</span>
+          <span>I</span>
+          <span>N</span>
+          <span>G</span>
+        </div>
         ) : (
           <>
             {pokeInformation ? (
@@ -105,10 +117,10 @@ export function Principal() {
       </div>
       <div className="buttons">
         <div>
-          <button className="buttonPrev" onClick={prevPage} disabled={currentPage === 0 || loading}><BsArrowLeft /></button>
+          <button className="buttonPrev" onClick={prevPage} disabled={currentPage === 0 || loading || pokeInformation !== null}><BsArrowLeft /></button>
         </div>
         <div>
-          <button className="buttonNext" onClick={nextPage} disabled={pokeList.length < itemsPerPage || loading}><BsArrowRight /></button>
+          <button className="buttonNext" onClick={nextPage} disabled={pokeList.length < itemsPerPage || loading || pokeInformation !== null}><BsArrowRight /></button>
         </div>
       </div>
     </div>

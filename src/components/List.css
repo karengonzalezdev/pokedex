@@ -20,10 +20,94 @@ ul {
     color: black;
   }
   
-  .selected {
+  .pokeName.selected {
     background-color: #fa450d !important;
     color: white !important;
-    border-radius: 15%;
-    border-style: double;
+  }
+
+  @media (max-width: 500px) {
+    ul {
+      width: 100%;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+      gap: 2px; /* Espacio entre elementos */
+      justify-content: center; /* Centra los elementos horizontalmente */
+      padding: 5px; /* Añade un poco de espacio interno */
+      
+    }
+  
+    .pokeName {
+      width: 70%; /* Ocupa todo el ancho de su contenedor */
+      max-width: 100%; /* Ancho máximo relativo */
+      padding: 5px;
+      margin: 8px;
+      border: 1px solid black;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      box-shadow: 7px 3px 3px #ff7230;
+      text-align: center; /* Centra el texto horizontalmente */
+    }
+  
+    .pokeName:hover {
+      background-color: #ff7230;
+    }
+  
+    .pokeName.selected {
+      background-color: #fa450d !important;
+      color: white !important;
+    }
   }
   
+  @media (min-width: 500px) and (max-width: 900px) {
+    ul {
+      width: 100%;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+      gap: 5px; /* Espacio entre elementos */
+      justify-content: center; /* Centra los elementos horizontalmente */
+      padding: 5px; /* Añade un poco de espacio interno */
+      
+    }
+  
+    .pokeName {
+      width: 80%; /* Ocupa todo el ancho de su contenedor */
+      max-width: 100%; /* Ancho máximo relativo */
+      padding: 10px;
+      margin: 8px;
+      border: 1px solid black;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      box-shadow: 7px 3px 3px #ff7230;
+      text-align: center; /* Centra el texto horizontalmente */
+    }
+  }
+
+  @media (min-width: 900px) and (max-width: 1100px) {
+    ul {
+      width: 100%;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+      gap: 5px; /* Espacio entre elementos */
+      justify-content: center; /* Centra los elementos horizontalmente */
+      padding: 5px; /* Añade un poco de espacio interno */
+      
+    }
+  
+    .pokeName {
+      width: 90%; /* Ocupa todo el ancho de su contenedor */
+      max-width: 100%; /* Ancho máximo relativo */
+      padding: 10px;
+      margin: 8px;
+      border: 1px solid black;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      box-shadow: 7px 3px 3px #ff7230;
+      text-align: center; /* Centra el texto horizontalmente */
+    }
+  }

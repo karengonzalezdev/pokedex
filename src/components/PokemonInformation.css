@@ -21,15 +21,17 @@
 
 .pokemon-info .stat-name {
     text-align: left;
+    margin-left: 20px;
 }
 
 .pokemon-info .stat-bar-container {
-    width: 100%;
+    width: 97%;
     background-color: #ddd;
     height: 10px;
     border-radius: 5px;
     overflow: hidden;
     margin-top: 5px;
+    margin-left: 20px;
 }
 
 .pokemon-info .stat-bar {
