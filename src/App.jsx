@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import { Principal } from './pages/Principal';
+import Principal from './pages/Principal';
 
 function App() {
 
