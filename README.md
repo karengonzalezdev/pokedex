@@ -1,11 +1,24 @@
-# pokedex
+# Pokedex 
 
-(Is not optimized for small screens yet)
+<br/>
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ See Page ⭐ <br/>
 https://pokedex-lovat-three.vercel.app/
 
 </br>
 
-![image](https://github.com/karenfggutierrez/pokedex/assets/69605681/b865ade6-403e-4de1-a96b-f653487e1dea)
+### See the Pokemon list
 
-![image](https://github.com/karenfggutierrez/pokedex/assets/69605681/2c865976-2184-47fb-9d2c-8418eadad8f8)
+![Principal](https://github.com/karenfggutierrez/pokedex/assets/69605681/107a269e-f83b-40a6-96ad-9a6e1702db08)
+
+### Select a Pokemon
+
+![PokemonImage](https://github.com/karenfggutierrez/pokedex/assets/69605681/d023c092-15cd-4316-bc0d-2788a9ec314d)
+
+### Double tap for its information
+
+![PokemonInfo](https://github.com/karenfggutierrez/pokedex/assets/69605681/3e59f94a-464e-47db-8fad-add665be2c23)
+
+### See the loading word moving!
+
+![Loading](https://github.com/karenfggutierrez/pokedex/assets/69605681/4e29279c-209e-4495-a87c-e3f279028923)
