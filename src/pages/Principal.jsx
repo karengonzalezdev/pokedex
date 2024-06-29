@@ -7,6 +7,8 @@ import { getPokemonKantoData } from "../api/PokemonService";
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPokemon } from '../app/store';
+import ReactAudioPlayer from "react-audio-player";
+import pokemonSong from '../assets/pokemonSong.mp3';
 
 export function Principal() {
 
@@ -89,7 +91,7 @@ export function Principal() {
       </div>
       <div className="column-2">
         {loading ? (
-          <div class="loading">
+          <div className="loading">
             <span>L</span>
             <span>O</span>
             <span>A</span>
@@ -115,6 +117,17 @@ export function Principal() {
           </>
         )}
       </div>
+      <div className="audio-controls">
+        <div className="circle">
+        <p className="p-play-music">Play music</p>
+        <ReactAudioPlayer
+          src={pokemonSong}
+          autoPlay
+          controls
+          loop
+          className="audio-player"
+        />
+        </div>
       <div className="buttons">
         <div>
           <button className="buttonPrev" onClick={prevPage} disabled={currentPage === 0 || loading || pokeInformation !== null}><BsArrowLeft /></button>
@@ -123,6 +136,7 @@ export function Principal() {
           <button className="buttonNext" onClick={nextPage} disabled={pokeList.length < itemsPerPage || loading || pokeInformation !== null}><BsArrowRight /></button>
         </div>
       </div>
+    </div>
     </div>
   );
 }

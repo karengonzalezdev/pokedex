@@ -25,7 +25,7 @@
 }
 
 .pokemon-info .stat-bar-container {
-    width: 97%;
+    width: 95%;
     background-color: #ddd;
     height: 10px;
     border-radius: 5px;
@@ -49,4 +49,26 @@
     border-width: 1px;
     border-style: dotted;
     border-color: black;
+}
+
+@media (max-width: 1100px) {
+    .pokemon-info {
+        width: 95%;
+        padding-left: 2rem;
+    }
+
+    .pokemon-info .stat-bar-container {
+        width: 97%;
+    }
+}
+
+@media (max-width: 600px) {
+    .pokemon-info {
+        width: 90%;
+        padding-left: 3rem;
+    }
+
+    .pokemon-info .stat-bar-container {
+        width: 95%;
+    }
 }

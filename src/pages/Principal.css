@@ -12,9 +12,16 @@
   flex-direction: column;
 }
 
+.column-2 {
+  width: 55%;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
 .card {
   width: 35rem;
-  height: 40rem;
+  height: 38rem;
   flex: 1;
   border-radius: 5px;
   background-color: orangered;
@@ -42,7 +49,7 @@
   width: 30rem;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 1rem;
   background-color: white;
   border-radius: 10px;
 }
@@ -53,18 +60,16 @@
   margin: 0 auto;
 }
 
-.column-2 {
-  width: 55%;
-  padding: 2px;
-  display: flex;
-  flex-direction: column;
-}
-
 .buttons {
   display: flex;
   gap: 5px;
   padding: 10px;
   align-items: center;
+}
+
+.buttonPrev {
+  padding-left: 3px;
+  padding-top: 5px;
 }
 
 .buttonNext {
@@ -74,7 +79,8 @@
 }
 
 .buttonPrevList {
-  background-color: greenyellow;
+  margin-top: 1.2rem;
+  box-shadow: 2px 2px 5px #ff7230;
   width: 30px;
   height: 30px;
 }
@@ -114,20 +120,11 @@
   animation-delay: 0.2s;
 }
 
-.loading span:nth-child(4) {
-  animation-delay: 0.3s;
-}
-
-.loading span:nth-child(5) {
-  animation-delay: 0.4s;
-}
-
-.loading span:nth-child(6) {
-  animation-delay: 0.5s;
-}
-
+.loading span:nth-child(4),
+.loading span:nth-child(5),
+.loading span:nth-child(6),
 .loading span:nth-child(7) {
-  animation-delay: 0.6s;
+  animation-delay: calc(0.3s + 0.1s * (n - 3));
 }
 
 @keyframes wave {
@@ -142,15 +139,65 @@
   }
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+}
+
+.audio-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-left: 2rem;
+  padding-right: 1rem;
+}
+
+.circle {
+  background-color: orangered;
+  border-radius: 50%;
+  width: 15vw;
+  height: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.p-play-music {
+  font-size: 2vw;
+  position: absolute;
+  top: 20%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: white;
+}
+
+.audio-player {
+  width: 70%;
+  position: absolute;
+  bottom: 38%;
+  transform: translateY(50%);
+}
+
 @media (max-width: 1100px) {
   .container {
     flex-direction: column;
     overflow: auto;
   }
 
-  .column-1,
-  .column-2 {
+  .column-1 {
     width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .column-2 {
+    width: 90%;
     padding: 0;
     margin: 0;
   }
@@ -161,35 +208,124 @@
     margin-bottom: 2rem;
   }
 
-  .buttons {
-    justify-content: center;
-  }
-
   .card {
-    padding-bottom: 20px;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
   }
 
   .loading {
     font-size: 10vw;
+    padding-left: 2rem;
+  }
+
+  .circle {
+    width: 20vw;
+    height: 25vw;
+  }
+
+  .p-play-music {
+    font-size: 2vw;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: white;
+  }
+
+  .buttonPrevList {
+    margin-left: 1.2rem;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column-2 {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1200px) {
+  .loading {
+    font-size: 5vw;
+  }
+
+  .circle {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  .audio-player {
+    width: 80%;
+  }
+
+  .p-play-music {
+    font-size: 1vw;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: white;
+  }
+
+  .column-2 {
+    width: 30%;
+    padding-left: 2rem;
+    margin: 0;
+  }
+
+  .buttonPrevList {
+    margin-left: 1rem;
   }
 }
 
 @media (max-width: 600px) {
   .card {
-    width: 18rem;
+    width: 20rem;
     height: auto;
     margin: 0;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 23px;
   }
 
   .pokemon {
-    width: 15rem;
+    width: 17rem;
     height: 14rem;
     margin-top: 20px;
   }
 
   .loading {
     font-size: 12vw;
+    padding-left: 3rem;
+  }
+
+  .circle {
+    width: 40vw;
+    height: 50vw;
+  }
+
+  .p-play-music {
+    font-size: 4vw;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: white;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column-2 {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    padding-right: 3rem;
   }
 }
