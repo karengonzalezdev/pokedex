@@ -65,7 +65,7 @@
 @media (max-width: 600px) {
     .pokemon-info {
         width: 90%;
-        padding-left: 3rem;
+        padding-left: 2rem;
     }
 
     .pokemon-info .stat-bar-container {
