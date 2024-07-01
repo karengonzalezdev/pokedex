@@ -290,6 +290,7 @@
     margin: 0;
     padding-top: 15px;
     padding-bottom: 23px;
+    box-sizing: border-box;
   }
 
   .pokemon {
@@ -320,13 +321,16 @@
   .container {
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
   }
 
   .column-2 {
-    width: 90%;
+    width: 100%;
     display: flex;
-    justify-content: flex-start; /* Align items to the start */
+    justify-content: flex-start;
     padding: 0;
+    padding-right: 3rem;
     margin: 0;
+    box-sizing: border-box;
   }
 }
