@@ -64,12 +64,12 @@
 
 @media (max-width: 600px) {
     .pokemon-info {
-      width: 100%;
-      padding-left: 2rem;
-      box-sizing: border-box;
+        width: 100%;
+        padding-left: 2rem;
+        box-sizing: border-box;
     }
-  
+
     .pokemon-info .stat-bar-container {
-      width: 95%;
+        width: 95%;
     }
-  }
+}
