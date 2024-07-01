@@ -283,49 +283,50 @@
   }
 }
 
-.card {
-  width: 20rem;
-  height: auto;
-  margin: 0;
-  padding-top: 15px;
-  padding-bottom: 23px;
-}
+@media (max-width: 600px) {
+  .card {
+    width: 20rem;
+    height: auto;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 23px;
+  }
 
-.pokemon {
-  width: 17rem;
-  height: 14rem;
-  margin-top: 20px;
-}
+  .pokemon {
+    width: 17rem;
+    height: 14rem;
+    margin-top: 20px;
+  }
 
-.loading {
-  font-size: 12vw;
-  padding-left: 3rem;
-}
+  .loading {
+    font-size: 12vw;
+    padding-left: 3rem;
+  }
 
-.circle {
-  width: 40vw;
-  height: 50vw;
-}
+  .circle {
+    width: 40vw;
+    height: 50vw;
+  }
 
-.p-play-music {
-  font-size: 4vw;
-  position: absolute;
-  top: 20%;
-  transform: translateY(-50%);
-  font-weight: bold;
-  color: white;
-}
+  .p-play-music {
+    font-size: 4vw;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: white;
+  }
 
-.container {
-  flex-direction: column;
-  align-items: center;
-}
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.column-2 {
-  width: 90%;
-  display: flex;
-  justify-content: flex-start; /* Align items to the start */
-  padding: 0;
-  padding-right: 3rem;
-  margin: 0;
+  .column-2 {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    padding: 0;
+    margin: 0;
+  }
 }
