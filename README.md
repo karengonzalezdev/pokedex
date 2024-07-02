@@ -5,6 +5,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ See Page ⭐ <br/>
 https://pokedex-lovat-three.vercel.app/
 
+<br/>
+
+Responsive page :boom:
+
 </br>
 
 ### See the Pokemon list
