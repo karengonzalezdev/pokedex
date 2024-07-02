@@ -1,29 +1,10 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { thunk } from 'redux-thunk';
+import { pokemonReducer } from './reducers';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+const rootReducer = combineReducers({
+  pokemon: pokemonReducer,  // Assign pokemonReducer to 'pokemon' state in the store
 });
 
-const initialState = {
-};
-
-const pokemonSlice = createSlice({
-  name: 'pokemon',
-  initialState,
-  reducers: {
-    setPokemon: (state, action) => {
-      state.pokemon = action.payload;
-    },
-  },
-});
-
-export const { setPokemon } = pokemonSlice.actions;
-
-export default configureStore({
-  reducer: {
-    pokemon: pokemonSlice.reducer,
-  },
-});
+// Create Redux store with redux-thunk middleware
+export const store = createStore(rootReducer, applyMiddleware(thunk));

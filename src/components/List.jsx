@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import './List.css';
+import usePokemonSelection from '../hooks/usePokemonId';
 
 function List({ pokemons, handleSingleClick, handleDoubleClick, lastClickedId }) {
-  const [selectedPokemonId, setSelectedPokemonId] = useState(null);
 
-  const handleClick = (pokemonId) => {
-    if (pokemonId === lastClickedId) {
-      handleDoubleClick(pokemonId);
-    } else {
-      handleSingleClick(pokemonId);
-      setSelectedPokemonId(pokemonId);
-    }
-  };
-
+  // Custom hook
+  const { selectedPokemonId, handleClick } = usePokemonSelection(handleSingleClick, handleDoubleClick, lastClickedId);
+  // Render list of Pokemons
   const drawPokemon = () => {
     return pokemons.map((p, id) => (
       <li

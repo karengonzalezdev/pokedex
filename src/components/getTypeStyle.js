@@ -1,4 +1,5 @@
 const getTypeStyle = (type) => {
+  
     let backgroundColor = "";
     switch (type) {
       case "grass":
@@ -56,6 +57,7 @@ const getTypeStyle = (type) => {
         backgroundColor = "#000";
         break;
     }
+    
     return backgroundColor;
   };
   

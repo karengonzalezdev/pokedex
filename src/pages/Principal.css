@@ -62,9 +62,11 @@
 
 .buttons {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
   gap: 5px;
   padding: 10px;
-  align-items: center;
 }
 
 .buttonPrev {
@@ -83,67 +85,6 @@
   box-shadow: 2px 2px 5px #ff7230;
   width: 30px;
   height: 30px;
-}
-
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  font-weight: bold;
-  color: rgb(255, 208, 0);
-  -webkit-text-stroke: 3px #5c8ed8;
-  text-stroke: 3px #5c8ed8;
-  text-shadow:
-    -3px -3px 0 #0000ff,
-    3px -3px 0 #0000ff,
-    -3px 3px 0 #0000ff,
-    3px 3px 0 #0000ff;
-  font-size: 7vw;
-  animation: wave 2s infinite;
-}
-
-.loading span {
-  display: inline-block;
-  animation: wave 2s infinite;
-}
-
-.loading span:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.loading span:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.loading span:nth-child(3) {
-  animation-delay: 0.2s;
-}
-
-.loading span:nth-child(4),
-.loading span:nth-child(5),
-.loading span:nth-child(6),
-.loading span:nth-child(7) {
-  animation-delay: calc(0.3s + 0.1s * (n - 3));
-}
-
-@keyframes wave {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
 }
 
 .audio-controls {
@@ -165,6 +106,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+  margin-right: 1rem;
   position: relative;
 }
 
@@ -178,9 +120,9 @@
 }
 
 .audio-player {
-  width: 70%;
+  width: 85%;
   position: absolute;
-  bottom: 38%;
+  bottom: 40%;
   transform: translateY(50%);
 }
 
@@ -211,11 +153,6 @@
   .card {
     padding-top: 1rem;
     padding-bottom: 2rem;
-  }
-
-  .loading {
-    font-size: 10vw;
-    padding-left: 2rem;
   }
 
   .circle {
@@ -250,9 +187,6 @@
 }
 
 @media (min-width: 1100px) and (max-width: 1200px) {
-  .loading {
-    font-size: 5vw;
-  }
 
   .circle {
     width: 12vw;
@@ -297,11 +231,6 @@
     width: 17rem;
     height: 14rem;
     margin-top: 20px;
-  }
-
-  .loading {
-    font-size: 12vw;
-    padding-left: 3rem;
   }
 
   .circle {

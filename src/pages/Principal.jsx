@@ -1,77 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import List from "../components/List";
 import './Principal.css';
 import PokemonImage from "../components/PokemonImage";
 import PokemonInformation from "../components/PokemonInformation";
-import { getPokemonKantoData } from "../api/PokemonService";
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
-import { useSelector, useDispatch } from 'react-redux';
-import { setPokemon } from '../app/store';
 import ReactAudioPlayer from "react-audio-player";
 import pokemonSong from '../assets/pokemonSong.mp3';
+import useLoading from '../hooks/useLoading';
+import usePokeList from '../hooks/usePokeList';
+import usePokemonSelection from '../hooks/usePokemonSelection';
+import Loading from '../components/Loading';
+import useNavigation from '../hooks/useNavigation';
+import useListActions from '../hooks/useListActions';
+import itemsPerPage from "../components/itemsPerPage"; // Ensure itemsPerPage is properly imported
 
 export function Principal() {
 
-  const dispatch = useDispatch();
-  const pokemon = useSelector((state) => state.pokemon);
-  const [pokemonSelected, setPokemonSelected] = useState(null);
-  const [pokeInformation, setPokeInformation] = useState(null);
-  const [pokeList, setPokeList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [lastClickedId, setLastClickedId] = useState(null);
-  const itemsPerPage = 20;
-
-  useEffect(() => {
-    dispatch(setPokemon({ name: 'Pikachu', type: 'Electric' }));
-  }, [dispatch]); console.log(pokemon);
-
-  useEffect(() => {
-    async function filteredList() {
-      setLoading(true);
-      let pokemons = await getPokemonKantoData();
-      pokemons = pokemons.map(pokemon => ({
-        ...pokemon,
-        name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-      }));
-      setPokeList(pokemons.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage));
-      setLoading(false);
-      setPokemonSelected(null);
-    }
-    filteredList();
-  }, [currentPage]);
-
-  const nextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
-  };
-
-  const handleSingleClick = (pokemonId) => {
-    setTimeout(() => {
-      if (lastClickedId === pokemonId) {
-        handleDoubleClick(pokemonId);
-      } else {
-        const selectedPokemon = pokeList.find((p) => p.id === pokemonId);
-        setPokemonSelected(selectedPokemon);
-        setPokeInformation(null);
-      }
-      setLastClickedId(null);
-    }, 250);
-    setLastClickedId(pokemonId);
-  };
-
-  const handleDoubleClick = (pokemonId) => {
-    const selectedPokemon = pokeList.find((p) => p.id === pokemonId);
-    setPokeInformation(selectedPokemon);
-  };
-
-  const closeInformation = () => {
-    setPokeInformation(null);
-    setPokemonSelected(null);
-  };
+  // Custom hooks
+  const { loading, setLoading } = useLoading();
+  const { currentPage, nextPage, prevPage } = useNavigation(0, 5);
+  const { handlePrevList } = useListActions();
+  const { pokeList } = usePokeList(currentPage, itemsPerPage, setLoading);
+  const { setPokemonSelected, pokemonSelected, pokeInformation, handleSingleClick, handleDoubleClick, closeInformation } = usePokemonSelection(pokeList, currentPage);
 
   return (
     <div className="container">
@@ -91,52 +41,60 @@ export function Principal() {
       </div>
       <div className="column-2">
         {loading ? (
-          <div className="loading">
-            <span>L</span>
-            <span>O</span>
-            <span>A</span>
-            <span>D</span>
-            <span>I</span>
-            <span>N</span>
-            <span>G</span>
-          </div>
+          <Loading />
         ) : (
           <>
             {pokeInformation ? (
               <>
-                <button className="buttonPrevList" onClick={closeInformation}><BsArrowLeft /></button>
+                <button className="buttonPrevList" onClick={() => {
+                  closeInformation();
+                  handlePrevList();
+                  setPokemonSelected(null);
+                }}><BsArrowLeft /></button>
                 <PokemonInformation pokemon={pokeInformation} />
               </>
             ) : (
               <List
                 pokemons={pokeList}
-                handleSingleClick={handleSingleClick}
+                handleSingleClick={(id) => {
+                  handleSingleClick(id);
+                  const selectedPokemon = pokeList.find((p) => p.id === id);
+                  setPokemonSelected(selectedPokemon);
+                }}
                 handleDoubleClick={handleDoubleClick}
               />
             )}
           </>
         )}
       </div>
+      {/* Audio controls for Pokemon theme song */}
       <div className="audio-controls">
         <div className="circle">
-        <p className="p-play-music">Play music</p>
-        <ReactAudioPlayer
-          src={pokemonSong}
-          autoPlay
-          controls
-          loop
-          className="audio-player"
-        />
+          <p className="p-play-music">Play music</p>
+          <ReactAudioPlayer
+            src={pokemonSong}
+            autoPlay
+            controls
+            loop
+            className="audio-player"
+          />
         </div>
-      <div className="buttons">
-        <div>
-          <button className="buttonPrev" onClick={prevPage} disabled={currentPage === 0 || loading || pokeInformation !== null}><BsArrowLeft /></button>
-        </div>
-        <div>
-          <button className="buttonNext" onClick={nextPage} disabled={pokeList.length < itemsPerPage || loading || pokeInformation !== null}><BsArrowRight /></button>
+        {/* Pagination buttons for navigating through Pokemon list */}
+        <div className="buttons">
+          <div>
+            <button className="buttonPrev" onClick={() => {
+              prevPage();
+              setPokemonSelected(null);
+            }} disabled={currentPage === 0 || loading || pokeInformation !== null}><BsArrowLeft /></button>
+          </div>
+          <div>
+            <button className="buttonNext" onClick={() => {
+              nextPage();
+              setPokemonSelected(null);
+            }} disabled={pokeList.length < itemsPerPage || loading || pokeInformation !== null}><BsArrowRight /></button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
