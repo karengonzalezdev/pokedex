@@ -2,8 +2,8 @@
 
 <br/>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ See Page ⭐ <br/>
-https://pokedex-lovat-three.vercel.app/
+⭐ See Page ⭐ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Pokedex](https://pokedex-lovat-three.vercel.app/)
 
 <br/>
 
